@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: executionengine
+  namespace: auditing
+  labels:
+    app: executionengine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: executionengine
+  template:
+    metadata:
+      labels:
+        app: executionengine
+    spec:
+      containers:
+        - name: executionengine
+          image: docker.io/johann8384/execution
+          ports:
+            - name: http
+              containerPort: 8000

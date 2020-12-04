@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Config
+clusters:
+  - name: executionengine
+    cluster:
+      server: http://executionengine.svc.cluster.local:8000/audit
+contexts:
+  - context:
+      cluster: executionengine
+      user: ""
+    name: executionengine
+current-context: executionengine
+preferences: {}
+users: []
